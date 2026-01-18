@@ -46,10 +46,10 @@ Usage: `ACL SETUSER <username> [rule1] [rule2] ...`
 
     * on / off: Enables or disables the user account.
     * nopass: Allows access without a password.
-    * password:<password>: Sets a password for the user.
-    * ~<pattern>: Restricts access to graphs matching the given pattern.
-    * +<command>: Grants permission to execute specific commands.
-    * -<command>: Denies permission to execute specific commands.
+    * password:`<password>`: Sets a password for the user.
+    * ~`<pattern>`: Restricts access to graphs matching the given pattern.
+    * +`<command>`: Grants permission to execute specific commands.
+    * -`<command>`: Denies permission to execute specific commands.
 
 #### Example
 
