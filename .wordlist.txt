@@ -752,3 +752,11 @@ FDB
 xlarge
 SaaS
 GCP's
+Docusaurus
+MDX
+admonition
+admonitions
+gitignore
+webpack
+kramdown
+JSX
