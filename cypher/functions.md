@@ -29,7 +29,7 @@ This section contains information on all supported functions from the Cypher que
 | [all(_var_ IN _list_ WHERE _predicate_)](#existential-comprehension-functions)    | Returns true when _predicate_ holds true for all elements in _list_         |
 | [any(_var_ IN _list_ WHERE _predicate_)](#existential-comprehension-functions)    | Returns true when _predicate_ holds true for at least one element in _list_ |
 | exists(_pattern_)                                                                 | Returns true when at least one match for _pattern_ exists                   |
-| isEmpty(_list_&#124;_map_&#124;_string_)                                          | Returns true if the input list or map contains no elements or if the input string contains no characters <br> Returns null when the input evaluates to null |
+| isEmpty(_list_&#124;_map_&#124;_string_)                                          | Returns true if the input list or map contains no elements or if the input string contains no characters <br/> Returns null when the input evaluates to null |
 | [none(_var_ IN _list_ WHERE _predicate_)](#existential-comprehension-functions)   | Returns true when _predicate_ holds false for all elements in _list_        |
 | [single(_var_ IN _list_ WHERE _predicate_)](#existential-comprehension-functions) | Returns true when _predicate_ holds true for exactly one element in _list_  |
 
@@ -37,17 +37,17 @@ This section contains information on all supported functions from the Cypher que
 
 | Function                          | Description|
 | --------------------------------- | :----------|
-| coalesce(_expr_[, expr...])       | Returns the evaluation of the first argument that evaluates to a non-null value <br> Returns null when all arguments evaluate to null       |
-| endNode(_relationship_)           | Returns the destination node of a relationship <br> Returns null when _relationship_ evaluates to null                                      |
-| hasLabels(_node_, _labelsList_) * | Returns true when _node_ contains all labels in _labelsList_, otherwise false <br> Return true when _labelsList_ evaluates to an empty list |
+| coalesce(_expr_[, expr...])       | Returns the evaluation of the first argument that evaluates to a non-null value <br/> Returns null when all arguments evaluate to null       |
+| endNode(_relationship_)           | Returns the destination node of a relationship <br/> Returns null when _relationship_ evaluates to null                                      |
+| hasLabels(_node_, _labelsList_) * | Returns true when _node_ contains all labels in _labelsList_, otherwise false <br/> Return true when _labelsList_ evaluates to an empty list |
 | id(_node_&#124;_relationship_)    | Returns the internal ID of a node or relationship (which is not immutable)                                                                  |
-| labels(_node_)                    | Returns a list of strings: all labels of _node_ <br> Returns null when _node_ evaluates to null                                             |
-| properties(_expr_)                | When _expr_ is a node or relationship: Returns a map containing all the properties of the given node or relationship <br> When _expr_ evaluates to a map: Returns _expr_ unchanged <br> Returns null when _expr_ evaluates to null |
+| labels(_node_)                    | Returns a list of strings: all labels of _node_ <br/> Returns null when _node_ evaluates to null                                             |
+| properties(_expr_)                | When _expr_ is a node or relationship: Returns a map containing all the properties of the given node or relationship <br/> When _expr_ evaluates to a map: Returns _expr_ unchanged <br/> Returns null when _expr_ evaluates to null |
 | randomUUID()                      | Returns a random UUID (Universal Unique IDentifier)                                                                                         |
-| startNode(_relationship_)         | Returns the source node of a relationship <br> Returns null when _relationship_ evaluates to null                                           |
+| startNode(_relationship_)         | Returns the source node of a relationship <br/> Returns null when _relationship_ evaluates to null                                           |
 | timestamp()                       | Returns the current system timestamp (milliseconds since epoch)                                                                             |
-| type(_relationship_)              | Returns a string: the type of _relationship_ <br> Returns null when _relationship_ evaluates to null                                        |
-| typeOf(_expr_) *                  | Returns a string: the type of a literal, an expression's evaluation, an alias, a node's property, or a relationship's property <br> Return value is one of `Map`, `String`, `Integer`, `Boolean`, `Float`, `Node`, `Edge`, `List`, `Path`, `Point`, or `Null` |
+| type(_relationship_)              | Returns a string: the type of _relationship_ <br/> Returns null when _relationship_ evaluates to null                                        |
+| typeOf(_expr_) *                  | Returns a string: the type of a literal, an expression's evaluation, an alias, a node's property, or a relationship's property <br/> Return value is one of `Map`, `String`, `Integer`, `Boolean`, `Float`, `Node`, `Edge`, `List`, `Path`, `Point`, or `Null` |
 | prev(_expr_) *                    | Stores the previous value and returns it on the next call; returns `null` on the first call. Useful for variable-length traversal filtering of edges based on the prior value. |
 
 &#42; FalkorDB-specific extensions to Cypher
@@ -56,32 +56,32 @@ This section contains information on all supported functions from the Cypher que
 
 |Function                             | Description|
 | ----------------------------------- |:-----------|
-|avg(_expr_)                          | Returns the average of a set of numeric values. null values are ignored <br> Returns null when _expr_ has no evaluations                                                   |
+|avg(_expr_)                          | Returns the average of a set of numeric values. null values are ignored <br/> Returns null when _expr_ has no evaluations                                                   |
 |collect(_expr_)                      | Returns a list containing all non-null elements which evaluated from a given expression                                                                                   |
-|count(_expr_&#124;&#42;)             | When argument is _expr_: returns the number of non-null evaluations of _expr_ <br> When argument is `*`: returns the total number of evaluations (including nulls)     |
-|max(_expr_)                          | Returns the maximum value in a set of values (taking into account type ordering). null values are ignored <br> Returns null when _expr_ has no evaluations                |
-|min(_expr_)                          | Returns the minimum value in a set of values (taking into account type ordering). null values are ignored <br> Returns null when _expr_ has no evaluations                |
-|percentileCont(_expr_, _percentile_) | Returns a linear-interpolated percentile (between 0.0 and 1.0) over a set of numeric values. null values are ignored <br> Returns null when _expr_ has no evaluations    |
-|percentileDisc(_expr_, _percentile_) | Returns a nearest-value percentile (between 0.0 and 1.0) over a set of numeric values. null values are ignored <br> Returns null when _expr_ has no evaluations         |
-|stDev(_expr_)                        | Returns the sample standard deviation over a set of numeric values. null values are ignored <br> Returns null when _expr_ has no evaluations                       |
-|stDevP(_expr_)                       | Returns the population standard deviation over a set of numeric values. null values are ignored <br> Returns null when _expr_ has no evaluations                       |
-|sum(_expr_)                          | Returns the sum of a set of numeric values. null values are ignored <br> Returns 0 when _expr_ has no evaluations                                                         |
+|count(_expr_&#124;&#42;)             | When argument is _expr_: returns the number of non-null evaluations of _expr_ <br/> When argument is `*`: returns the total number of evaluations (including nulls)     |
+|max(_expr_)                          | Returns the maximum value in a set of values (taking into account type ordering). null values are ignored <br/> Returns null when _expr_ has no evaluations                |
+|min(_expr_)                          | Returns the minimum value in a set of values (taking into account type ordering). null values are ignored <br/> Returns null when _expr_ has no evaluations                |
+|percentileCont(_expr_, _percentile_) | Returns a linear-interpolated percentile (between 0.0 and 1.0) over a set of numeric values. null values are ignored <br/> Returns null when _expr_ has no evaluations    |
+|percentileDisc(_expr_, _percentile_) | Returns a nearest-value percentile (between 0.0 and 1.0) over a set of numeric values. null values are ignored <br/> Returns null when _expr_ has no evaluations         |
+|stDev(_expr_)                        | Returns the sample standard deviation over a set of numeric values. null values are ignored <br/> Returns null when _expr_ has no evaluations                       |
+|stDevP(_expr_)                       | Returns the population standard deviation over a set of numeric values. null values are ignored <br/> Returns null when _expr_ has no evaluations                       |
+|sum(_expr_)                          | Returns the sum of a set of numeric values. null values are ignored <br/> Returns 0 when _expr_ has no evaluations                                                         |
 
 ## List functions
 
 | Function                             | Description|
 | ------------------------------------ | :----------|
-| head(_expr_)                         | Returns the first element of a list <br> Returns null when _expr_ evaluates to null or an empty list                                                                                                    |
-| keys(_expr_)                         | Returns a list of strings: all key names for given map or all property names for a given node or edge <br> Returns null when _expr_ evaluates to null                                                |
-| last(_expr_)                         | Returns the last element of a list <br> Returns null when _expr_ evaluates to null or an empty list                                     
-| list.dedup(_list_) *                                               | Given a list, returns a similar list after removing duplicate elements <br> Order is preserved, duplicates are removed from the end of the list <br> Returns null when _list_ evaluates to null <br> Emit an error when _list_ does not evaluate to a list or to null |
-| list.insert(_list_, _idx_, _val_[, _dups_ = TRUE]) *               | Given a list, returns a list after inserting a given value at a given index <br> _idx_ is 0-based when non-negative, or from the end of the list when negative <br> Returns null when _list_ evaluates to null <br> Returns _list_ when _val_ evaluates to null <br> Returns _list_ when _idx_ evaluates to an integer not in [-NumItems-1 .. NumItems] <br> When _dups_ evaluates to FALSE: returns _list_ when _val_ evaluates to a value that is already an element of _list_  <br> Emit an error when _list_ does not evaluate to a list or to null <br> Emit an error when _idx_ does not evaluate to an integer <br> Emit an error when _dups_, if specified, does not evaluate to a Boolean |
-| list.insertListElements(_list_, _list2_, _idx_[, _dups_ = TRUE]) * | Given a list, returns a list after inserting the elements of a second list at a given index <br> _idx_ is 0-based when non-negative, or from the end of the list when negative <br> Returns null when _list_ evaluates to null <br> Returns _list_ when _list2_ evaluates to null <br> Returns _list_ when _idx_ evaluates to an integer not in [-NumItems-1 .. NumItems] <br> When _dups_ evaluates to FALSE: If an element of _list2_ evaluates to an element of _list_ it would be skipped; If multiple elements of _list2_ evaluate to the same value - this value would be inserted at most once to _list_ <br> Emit an error when _list_ does not evaluate to a list or to null <br> Emit an error when _list2_ does not evaluate to a list or to null <br> Emit an error when _idx_ does not evaluate to an integer <br> Emit an error when _dups_, if specified, does not evaluate to a Boolean |
-| list.remove(_list_, _idx_[, _count_ = 1]) *                        | Given a list, returns a list after removing a given number of consecutive elements (or less, if the end of the list has been reached). starting at a given index. <br> _idx_ is 0-based when non-negative, or from the end of the list when negative <br> Returns _null_ when _list_ evaluates to null <br> Returns _list_ when _idx_ evaluates to an integer not in [-NumItems .. NumItems-1] <br> Returns _list_ when _count_ evaluates to a non-positive integer <br> Emit an error when _list_ does not evaluate to a list or to null <br> Emit an error when _idx_ does not evaluate to an integer <br> Emit an error when _count_, if specified, does not evaluate to an integer |
-| list.sort(_list_[, _ascending_ = TRUE]) *                          | Given a list, returns a list with similar elements, but sorted (inversely-sorted if _ascending_ is evaluated to FALSE) <br> Returns null when _list_ evaluates to null <br> Emit an error when _list_ does not evaluate to a list or to null <br> Emit an error when _ascending_, if specified, does not evaluate to a Boolean |
+| head(_expr_)                         | Returns the first element of a list <br/> Returns null when _expr_ evaluates to null or an empty list                                                                                                    |
+| keys(_expr_)                         | Returns a list of strings: all key names for given map or all property names for a given node or edge <br/> Returns null when _expr_ evaluates to null                                                |
+| last(_expr_)                         | Returns the last element of a list <br/> Returns null when _expr_ evaluates to null or an empty list                                     
+| list.dedup(_list_) *                                               | Given a list, returns a similar list after removing duplicate elements <br/> Order is preserved, duplicates are removed from the end of the list <br/> Returns null when _list_ evaluates to null <br/> Emit an error when _list_ does not evaluate to a list or to null |
+| list.insert(_list_, _idx_, _val_[, _dups_ = TRUE]) *               | Given a list, returns a list after inserting a given value at a given index <br/> _idx_ is 0-based when non-negative, or from the end of the list when negative <br/> Returns null when _list_ evaluates to null <br/> Returns _list_ when _val_ evaluates to null <br/> Returns _list_ when _idx_ evaluates to an integer not in [-NumItems-1 .. NumItems] <br/> When _dups_ evaluates to FALSE: returns _list_ when _val_ evaluates to a value that is already an element of _list_  <br/> Emit an error when _list_ does not evaluate to a list or to null <br/> Emit an error when _idx_ does not evaluate to an integer <br/> Emit an error when _dups_, if specified, does not evaluate to a Boolean |
+| list.insertListElements(_list_, _list2_, _idx_[, _dups_ = TRUE]) * | Given a list, returns a list after inserting the elements of a second list at a given index <br/> _idx_ is 0-based when non-negative, or from the end of the list when negative <br/> Returns null when _list_ evaluates to null <br/> Returns _list_ when _list2_ evaluates to null <br/> Returns _list_ when _idx_ evaluates to an integer not in [-NumItems-1 .. NumItems] <br/> When _dups_ evaluates to FALSE: If an element of _list2_ evaluates to an element of _list_ it would be skipped; If multiple elements of _list2_ evaluate to the same value - this value would be inserted at most once to _list_ <br/> Emit an error when _list_ does not evaluate to a list or to null <br/> Emit an error when _list2_ does not evaluate to a list or to null <br/> Emit an error when _idx_ does not evaluate to an integer <br/> Emit an error when _dups_, if specified, does not evaluate to a Boolean |
+| list.remove(_list_, _idx_[, _count_ = 1]) *                        | Given a list, returns a list after removing a given number of consecutive elements (or less, if the end of the list has been reached). starting at a given index. <br/> _idx_ is 0-based when non-negative, or from the end of the list when negative <br/> Returns _null_ when _list_ evaluates to null <br/> Returns _list_ when _idx_ evaluates to an integer not in [-NumItems .. NumItems-1] <br/> Returns _list_ when _count_ evaluates to a non-positive integer <br/> Emit an error when _list_ does not evaluate to a list or to null <br/> Emit an error when _idx_ does not evaluate to an integer <br/> Emit an error when _count_, if specified, does not evaluate to an integer |
+| list.sort(_list_[, _ascending_ = TRUE]) *                          | Given a list, returns a list with similar elements, but sorted (inversely-sorted if _ascending_ is evaluated to FALSE) <br/> Returns null when _list_ evaluates to null <br/> Emit an error when _list_ does not evaluate to a list or to null <br/> Emit an error when _ascending_, if specified, does not evaluate to a Boolean |
 | range(_first_, _last_[, _step_ = 1]) | Returns a list of integers in the range of [start, end]. _step_, an optional integer argument, is the increment between consecutive elements                                                         |
-| size(_expr_)                         | Returns the number of elements in a list <br> Returns null with _expr_ evaluates to null                                                                                                                |
-| tail(_expr_)                         | Returns a sublist of a list, which contains all its elements except the first <br> Returns an empty list when _expr_ contains less than 2 elements. <br> Returns null when _expr_ evaluates to null |
+| size(_expr_)                         | Returns the number of elements in a list <br/> Returns null with _expr_ evaluates to null                                                                                                                |
+| tail(_expr_)                         | Returns a sublist of a list, which contains all its elements except the first <br/> Returns an empty list when _expr_ contains less than 2 elements. <br/> Returns null when _expr_ evaluates to null |
 | [reduce(...)](#reduce)               | Returns a scalar produced by evaluating an expression against each list member |
 
 &#42; FalkorDB-specific extensions to Cypher
@@ -101,18 +101,18 @@ This section contains information on all supported functions from the Cypher que
 
 |Function                   | Description|
 | ------------------------- |:-----------|
-| abs(_expr_)               | Returns the absolute value of a numeric value <br> Returns null when _expr_ evaluates to null |
-| ceil(_expr_) **           | When _expr_ evaluates to an integer: returns its evaluation <br> When _expr_ evaluates to floating point: returns a floating point equals to the smallest integer greater than or equal to _expr_ <br> Returns null when _expr_ evaluates to null |
+| abs(_expr_)               | Returns the absolute value of a numeric value <br/> Returns null when _expr_ evaluates to null |
+| ceil(_expr_) **           | When _expr_ evaluates to an integer: returns its evaluation <br/> When _expr_ evaluates to floating point: returns a floating point equals to the smallest integer greater than or equal to _expr_ <br/> Returns null when _expr_ evaluates to null |
 | e()                       | Returns the constant _e_, the base of the natural logarithm |
-| exp(_expr_)               | Returns _e_^_expr_, where _e_ is the base of the natural logarithm <br> Returns null when _expr_ evaluates to null |
-| floor(_expr_) **          | When _expr_ evaluates to an integer: returns its evaluation <br> When _expr_ evaluates to a floating point: returns a floating point equals to the greatest integer less than or equal to _expr_ <br> Returns null when _expr_ evaluates to null |
-| log(_expr_)               | Returns the natural logarithm of a numeric value <br> Returns nan when _expr_ evaluates to a negative numeric value, -inf when _expr_ evaluates to 0, and null when _expr_ evaluates to null |
-| log10(_expr_)             | Returns the base-10 logarithm of a numeric value <br> Returns nan when _expr_ evaluates to a negative numeric value, -inf when _expr_ evaluates to 0, and null when _expr_ evaluates to null |
-| pow(_base_, _exponent_) * | Returns _base_ raised to the power of _exponent_ (equivalent to _base_^_exponent_) <br> Returns null when either evaluates to null |
+| exp(_expr_)               | Returns _e_^_expr_, where _e_ is the base of the natural logarithm <br/> Returns null when _expr_ evaluates to null |
+| floor(_expr_) **          | When _expr_ evaluates to an integer: returns its evaluation <br/> When _expr_ evaluates to a floating point: returns a floating point equals to the greatest integer less than or equal to _expr_ <br/> Returns null when _expr_ evaluates to null |
+| log(_expr_)               | Returns the natural logarithm of a numeric value <br/> Returns nan when _expr_ evaluates to a negative numeric value, -inf when _expr_ evaluates to 0, and null when _expr_ evaluates to null |
+| log10(_expr_)             | Returns the base-10 logarithm of a numeric value <br/> Returns nan when _expr_ evaluates to a negative numeric value, -inf when _expr_ evaluates to 0, and null when _expr_ evaluates to null |
+| pow(_base_, _exponent_) * | Returns _base_ raised to the power of _exponent_ (equivalent to _base_^_exponent_) <br/> Returns null when either evaluates to null |
 | rand()                    | Returns a random floating point in the range [0,1] |
-| round(_expr_) ** ***      | When _expr_ evaluates to an integer: returns its evaluation <br> When _expr_ evaluates to a floating point: returns a floating point equals to the integer closest to _expr_ <br> Returns null when _expr_ evaluates to null |
-| sign(_expr_)              | Returns the signum of a numeric value: 0 when _expr_ evaluates to 0, -1 when _expr_ evaluates to a negative numeric value, and 1 when _expr_ evaluates to a positive numeric value <br> Returns null when _expr_ evaluates to null |
-| sqrt(_expr_)              | Returns the square root of a numeric value <br> Returns nan when _expr_ evaluates to a negative value and null when _expr_ evaluates to null |
+| round(_expr_) ** ***      | When _expr_ evaluates to an integer: returns its evaluation <br/> When _expr_ evaluates to a floating point: returns a floating point equals to the integer closest to _expr_ <br/> Returns null when _expr_ evaluates to null |
+| sign(_expr_)              | Returns the signum of a numeric value: 0 when _expr_ evaluates to 0, -1 when _expr_ evaluates to a negative numeric value, and 1 when _expr_ evaluates to a positive numeric value <br/> Returns null when _expr_ evaluates to null |
+| sqrt(_expr_)              | Returns the square root of a numeric value <br/> Returns nan when _expr_ evaluates to a negative value and null when _expr_ evaluates to null |
 
 &#42; FalkorDB-specific extensions to Cypher
 
@@ -124,64 +124,64 @@ This section contains information on all supported functions from the Cypher que
 
 |Function               | Description|
 | --------------------- |:-----------|
-| acos(_expr_)          | Returns the arccosine, in radians, of a numeric value <br> Returns nan when _expr_ evaluates to a numeric value not in [-1, 1] and null when _expr_ evaluates to null |
-| asin(_expr_)          | Returns the arcsine, in radians, of a numeric value <br> Returns nan when _expr_ evaluates to a numeric value not in [-1, 1] and null when _expr_ evaluates to null |
-| atan(_expr_)          | Returns the arctangent, in radians, of a numeric value <br> Returns null when _expr_ evaluates to null                          |
-| atan2(_expr_, _expr_) | Returns the 2-argument arctangent, in radians, of a pair of numeric values (Cartesian coordinates) <br> Returns 0 when both expressions evaluate to 0 <br> Returns null when either expression evaluates to null |
-| cos(_expr_)           | Returns the cosine of a numeric value that represents an angle in radians <br> Returns null when _expr_ evaluates to null       |
-| cot(_expr_)           | Returns the cotangent of a numeric value that represents an angle in radians <br> Returns inf when _expr_ evaluates to 0 and null when _expr_ evaluates to null |
-| degrees(_expr_)       | Converts a numeric value from radians to degrees <br> Returns null when _expr_ evaluates to null                                |
-| haversin(_expr_)      | Returns half the versine of a numeric value that represents an angle in radians <br> Returns null when _expr_ evaluates to null |
+| acos(_expr_)          | Returns the arccosine, in radians, of a numeric value <br/> Returns nan when _expr_ evaluates to a numeric value not in [-1, 1] and null when _expr_ evaluates to null |
+| asin(_expr_)          | Returns the arcsine, in radians, of a numeric value <br/> Returns nan when _expr_ evaluates to a numeric value not in [-1, 1] and null when _expr_ evaluates to null |
+| atan(_expr_)          | Returns the arctangent, in radians, of a numeric value <br/> Returns null when _expr_ evaluates to null                          |
+| atan2(_expr_, _expr_) | Returns the 2-argument arctangent, in radians, of a pair of numeric values (Cartesian coordinates) <br/> Returns 0 when both expressions evaluate to 0 <br/> Returns null when either expression evaluates to null |
+| cos(_expr_)           | Returns the cosine of a numeric value that represents an angle in radians <br/> Returns null when _expr_ evaluates to null       |
+| cot(_expr_)           | Returns the cotangent of a numeric value that represents an angle in radians <br/> Returns inf when _expr_ evaluates to 0 and null when _expr_ evaluates to null |
+| degrees(_expr_)       | Converts a numeric value from radians to degrees <br/> Returns null when _expr_ evaluates to null                                |
+| haversin(_expr_)      | Returns half the versine of a numeric value that represents an angle in radians <br/> Returns null when _expr_ evaluates to null |
 | pi()                  | Returns the mathematical constant _pi_                                                                                          |
-| radians(_expr_)       | Converts a numeric value from degrees to radians <br> Returns null when _expr_ evaluates to null                                |
-| sin(_expr_)           | Returns the sine of a numeric value that represents an angle in radians <br> Returns null when _expr_ evaluates to null         |
-| tan(_expr_)           | Returns the tangent of a numeric value that represents an angle in radians <br> Returns null when _expr_ evaluates to null      |
+| radians(_expr_)       | Converts a numeric value from degrees to radians <br/> Returns null when _expr_ evaluates to null                                |
+| sin(_expr_)           | Returns the sine of a numeric value that represents an angle in radians <br/> Returns null when _expr_ evaluates to null         |
+| tan(_expr_)           | Returns the tangent of a numeric value that represents an angle in radians <br/> Returns null when _expr_ evaluates to null      |
 
 ## String functions
 
 | Function                            | Description|
 | ----------------------------------- | :----------|
-| left(_str_, _len_)                  | Returns a string containing the _len_ leftmost characters of _str_ <br> Returns null when _str_ evaluates to null, otherwise emit an error if _len_ evaluates to null |
-| lTrim(_str_)                        | Returns _str_ with leading whitespace removed <br> Returns null when _str_ evaluates to null                                                                     |
-| replace(_str_, _search_, _replace_) | Returns _str_ with all occurrences of _search_ replaced with _replace_ <br> Returns null when any argument evaluates to null                                     |
-| reverse(_str_)                      | Returns a string in which the order of all characters in _str_ are reversed <br> Returns null when _str_ evaluates to null                                       |
-| right(_str_, _len_)                 | Returns a string containing the _len_ rightmost characters of _str_ <br> Returns null when _str_ evaluates to null, otherwise emit an error if _len_ evaluates to null |
-| rTrim(_str_)                        | Returns _str_ with trailing whitespace removed <br> Returns null when _str_ evaluates to null                                                                   |
-| split(_str_, _delimiter_)           | Returns a list of strings from splitting _str_ by _delimiter_ <br> Returns null when any argument evaluates to null                                             |
-| string.join(_strList_[, _delimiter_ = '']) *         | Returns a concatenation of a list of strings using a given delimiter <br> Returns null when _strList_ evaluates to null <br> Returns null when _delimiter_, if specified, evaluates to null <br> Emit an error when _strList_ does not evaluate to a list or to null <br> Emit an error when an element of _strList_ does not evaluate to a string <br> Emit an error when _delimiter_, if specified, does not evaluate to a string or to null |
-| string.matchRegEx(_str_, _regex_) *                  | Given a string and a regular expression, returns a list of all matches and matching regions <br> Returns an empty list when _str_ evaluates to null <br> Returns an empty list when _regex_ evaluates to null <br> Emit an error when _str_ does not evaluate to a string or to null <br> Emit an error when _regex_ does not evaluate to a valid regex string or to null |
-| string.replaceRegEx(_str_, _regex_, _replacement_) * | Given a string and a regular expression, returns a string after replacing each regex match with a given replacement <br> Returns null when _str_ evaluates to null <br> Returns null when _regex_ evaluates to null <br> Returns null when _replacement_ evaluates to null <br> Emit an error when _str_ does not evaluate to a string or to null <br> Emit an error when _regex_ does not evaluate to a valid regex string or to null <br> Emit an error when _replacement_ does not evaluate to a string or to null |
-| substring(_str_, _start_[, _len_])  | When _len_ is specified: returns a substring of _str_ beginning with a 0-based index _start_ and with length _len_ <br> When _len_ is not specified: returns a substring of _str_ beginning with a 0-based index _start_ and extending to the end of _str_ <br> Returns null when _str_ evaluates to null <br> Emit an error when _start_ or _len_ evaluate to null |
-| toLower(_str_)                      | Returns _str_ in lowercase <br> Returns null when _str_ evaluates to null                                 |
-| toJSON(_expr_) *                    | Returns a [JSON representation](#json-format) of a value <br> Returns null when _expr_ evaluates to null  |
-| toUpper(_str_)                      | Returns _str_ in uppercase <br> Returns null when _str_ evaluates to null                                 |
-| trim(_str_)                         | Returns _str_ with leading and trailing whitespace removed <br> Returns null when _str_ evaluates to null |
-| size(_str_)                         | Returns the number of characters in _str_ <br> Returns null when _str_ evaluates to null                  |
-| [intern(_str_)](#intern)            | Returns a deduplicated, memory-efficient representation of _str_ <br> Returns null when _str_ evaluates to null |
+| left(_str_, _len_)                  | Returns a string containing the _len_ leftmost characters of _str_ <br/> Returns null when _str_ evaluates to null, otherwise emit an error if _len_ evaluates to null |
+| lTrim(_str_)                        | Returns _str_ with leading whitespace removed <br/> Returns null when _str_ evaluates to null                                                                     |
+| replace(_str_, _search_, _replace_) | Returns _str_ with all occurrences of _search_ replaced with _replace_ <br/> Returns null when any argument evaluates to null                                     |
+| reverse(_str_)                      | Returns a string in which the order of all characters in _str_ are reversed <br/> Returns null when _str_ evaluates to null                                       |
+| right(_str_, _len_)                 | Returns a string containing the _len_ rightmost characters of _str_ <br/> Returns null when _str_ evaluates to null, otherwise emit an error if _len_ evaluates to null |
+| rTrim(_str_)                        | Returns _str_ with trailing whitespace removed <br/> Returns null when _str_ evaluates to null                                                                   |
+| split(_str_, _delimiter_)           | Returns a list of strings from splitting _str_ by _delimiter_ <br/> Returns null when any argument evaluates to null                                             |
+| string.join(_strList_[, _delimiter_ = '']) *         | Returns a concatenation of a list of strings using a given delimiter <br/> Returns null when _strList_ evaluates to null <br/> Returns null when _delimiter_, if specified, evaluates to null <br/> Emit an error when _strList_ does not evaluate to a list or to null <br/> Emit an error when an element of _strList_ does not evaluate to a string <br/> Emit an error when _delimiter_, if specified, does not evaluate to a string or to null |
+| string.matchRegEx(_str_, _regex_) *                  | Given a string and a regular expression, returns a list of all matches and matching regions <br/> Returns an empty list when _str_ evaluates to null <br/> Returns an empty list when _regex_ evaluates to null <br/> Emit an error when _str_ does not evaluate to a string or to null <br/> Emit an error when _regex_ does not evaluate to a valid regex string or to null |
+| string.replaceRegEx(_str_, _regex_, _replacement_) * | Given a string and a regular expression, returns a string after replacing each regex match with a given replacement <br/> Returns null when _str_ evaluates to null <br/> Returns null when _regex_ evaluates to null <br/> Returns null when _replacement_ evaluates to null <br/> Emit an error when _str_ does not evaluate to a string or to null <br/> Emit an error when _regex_ does not evaluate to a valid regex string or to null <br/> Emit an error when _replacement_ does not evaluate to a string or to null |
+| substring(_str_, _start_[, _len_])  | When _len_ is specified: returns a substring of _str_ beginning with a 0-based index _start_ and with length _len_ <br/> When _len_ is not specified: returns a substring of _str_ beginning with a 0-based index _start_ and extending to the end of _str_ <br/> Returns null when _str_ evaluates to null <br/> Emit an error when _start_ or _len_ evaluate to null |
+| toLower(_str_)                      | Returns _str_ in lowercase <br/> Returns null when _str_ evaluates to null                                 |
+| toJSON(_expr_) *                    | Returns a [JSON representation](#json-format) of a value <br/> Returns null when _expr_ evaluates to null  |
+| toUpper(_str_)                      | Returns _str_ in uppercase <br/> Returns null when _str_ evaluates to null                                 |
+| trim(_str_)                         | Returns _str_ with leading and trailing whitespace removed <br/> Returns null when _expr_ evaluates to null |
+| size(_str_)                         | Returns the number of characters in _str_ <br/> Returns null when _str_ evaluates to null                  |
+| [intern(_str_)](#intern)            | Returns a deduplicated, memory-efficient representation of _str_ <br/> Returns null when _str_ evaluates to null |
 
 ## Point functions
 
 | Function                     | Description|
 | ---------------------------- | :----------|
 | [point(_map_)](#point)       | Returns a Point representing a lat/lon coordinates                                                          |
-| distance(_point1_, _point2_) | Returns the distance in meters between the two given points <br> Returns null when either evaluates to null |
+| distance(_point1_, _point2_) | Returns the distance in meters between the two given points <br/> Returns null when either evaluates to null |
 
 ## Type conversion functions
 
 |Function                     | Description|
 | --------------------------- |:-----------|
-| toBoolean(_expr_)           | Returns a Boolean when _expr_ evaluates to a Boolean <br> Converts a string to Boolean (`"true"` (case insensitive) to true, `"false"` (case insensitive) to false, any other value to null) <br> Converts an integer to Boolean (0 to `false`, any other values to `true`) <br> Returns null when _expr_ evaluates to null <br> Emit an error on other types |
+| toBoolean(_expr_)           | Returns a Boolean when _expr_ evaluates to a Boolean <br/> Converts a string to Boolean (`"true"` (case insensitive) to true, `"false"` (case insensitive) to false, any other value to null) <br/> Converts an integer to Boolean (0 to `false`, any other values to `true`) <br/> Returns null when _expr_ evaluates to null <br/> Emit an error on other types |
 | toBooleanList(_exprList_)   | Converts a list to a list of Booleans. Each element in the list is converted using toBooleanOrNull() |
-| toBooleanOrNull(_expr_)     | Returns a Boolean when _expr_ evaluates to a Boolean <br> Converts a string to Boolean (`"true"` (case insensitive) to true, `"false"` (case insensitive) to false, any other value to null) <br> Converts an integer to Boolean (0 to `false`, any other values to `true`) <br> Returns null when _expr_ evaluates to null <br> Returns null for other types |
-| toFloat(_expr_)             | Returns a floating point when _expr_ evaluates to a floating point <br> Converts an integer to a floating point <br> Converts a string to a floating point or null <br> Returns null when _expr_ evaluates to null <br> Emit an error on other types |
+| toBooleanOrNull(_expr_)     | Returns a Boolean when _expr_ evaluates to a Boolean <br/> Converts a string to Boolean (`"true"` (case insensitive) to true, `"false"` (case insensitive) to false, any other value to null) <br/> Converts an integer to Boolean (0 to `false`, any other values to `true`) <br/> Returns null when _expr_ evaluates to null <br/> Returns null for other types |
+| toFloat(_expr_)             | Returns a floating point when _expr_ evaluates to a floating point <br/> Converts an integer to a floating point <br/> Converts a string to a floating point or null <br/> Returns null when _expr_ evaluates to null <br/> Emit an error on other types |
 | toFloatList(_exprList_)     | Converts a list to a list of floating points. Each element in the list is converted using toFloatOrNull() |
-| toFloatOrNull(_expr_)       | Returns a floating point when _expr_ evaluates to a floating point <br> Converts an integer to a floating point <br> Converts a string to a floating point or null <br> Returns null when _expr_ evaluates to null <br> Returns null for other types |
-| toInteger(_expr_) *         | Returns an integer when _expr_ evaluates to an integer <br> Converts a floating point to integer <br> Converts a string to an integer or null <br> Converts a Boolean to an integer (false to 0, true to 1) Returns null when _expr_ evaluates to null <br> Emit an error on other types |
+| toFloatOrNull(_expr_)       | Returns a floating point when _expr_ evaluates to a floating point <br/> Converts an integer to a floating point <br/> Converts a string to a floating point or null <br/> Returns null when _expr_ evaluates to null <br/> Returns null for other types |
+| toInteger(_expr_) *         | Returns an integer when _expr_ evaluates to an integer <br/> Converts a floating point to integer <br/> Converts a string to an integer or null <br/> Converts a Boolean to an integer (false to 0, true to 1) Returns null when _expr_ evaluates to null <br/> Emit an error on other types |
 | toIntegerList(_exprList_) * | Converts a list to a list of integer values. Each element in the list is converted using toIntegerOrNull() |
-| toIntegerOrNull(_expr_) *   | Returns an integer when _expr_ evaluates to an integer <br> Converts a floating point to integer <br> Converts a string to an integer or null <br> Converts a Boolean to an integer (false to 0, true to 1) Returns null when _expr_ evaluates to null <br> Returns null for other types |
-| toString(_expr_)            | Returns a string when _expr_ evaluates to a string <br> Converts an integer, float, Boolean, string, or point to a string representation <br> Returns null when _expr_ evaluates to null <br> Emit an error on other types |
+| toIntegerOrNull(_expr_) *   | Returns an integer when _expr_ evaluates to an integer <br/> Converts a floating point to integer <br/> Converts a string to an integer or null <br/> Converts a Boolean to an integer (false to 0, true to 1) Returns null when _expr_ evaluates to null <br/> Returns null for other types |
+| toString(_expr_)            | Returns a string when _expr_ evaluates to a string <br/> Converts an integer, float, Boolean, string, or point to a string representation <br/> Returns null when _expr_ evaluates to null <br/> Emit an error on other types |
 | toStringList(_exprList_)    | Converts a list to a list of strings. Each element in the list is converted using toStringOrNull() | 
-| toStringOrNull(_expr_)      | Returns a string when _expr_ evaluates to a string <br> Converts an integer, float, Boolean, string, or point to a string representation <br> Returns null when _expr_ evaluates to null <br> Returns null for other types |
+| toStringOrNull(_expr_)      | Returns a string when _expr_ evaluates to a string <br/> Converts an integer, float, Boolean, string, or point to a string representation <br/> Returns null when _expr_ evaluates to null <br/> Returns null for other types |
 
 &#42; FalkorDB-specific behavior: rounding method when converting a floating point to an integer is "toward negative infinity (floor)"
 
@@ -189,8 +189,8 @@ This section contains information on all supported functions from the Cypher que
 
 |Function      | Description|
 | ------------ |:-----------|
-|indegree(_node_ [, _reltype_ ...]) * <br> indegree(_node_ [, _reltypeList_]) *   | When no relationship types are specified: Returns the number of _node_'s incoming edges <br> When one or more relationship types are specified: Returns the number of _node's_ incoming edges with one of the given relationship types <br> Return null when _node_ evaluates to null |
-|outdegree(_node_ [, _reltype_ ...]) * <br> outdegree(_node_ [, _reltypeList_]) * | When no relationship types are specified: Returns the number of _node_'s outgoing edges <br> When one or more relationship types are specified: Returns the number of _node's_ outgoing edges with one of the given relationship types <br> Return null when _node_ evaluates to null |
+|indegree(_node_ [, _reltype_ ...]) * <br/> indegree(_node_ [, _reltypeList_]) *   | When no relationship types are specified: Returns the number of _node_'s incoming edges <br/> When one or more relationship types are specified: Returns the number of _node's_ incoming edges with one of the given relationship types <br/> Return null when _node_ evaluates to null |
+|outdegree(_node_ [, _reltype_ ...]) * <br/> outdegree(_node_ [, _reltypeList_]) * | When no relationship types are specified: Returns the number of _node_'s outgoing edges <br/> When one or more relationship types are specified: Returns the number of _node's_ outgoing edges with one of the given relationship types <br/> Return null when _node_ evaluates to null |
 
 &#42; FalkorDB-specific extensions to Cypher
 
@@ -198,9 +198,9 @@ This section contains information on all supported functions from the Cypher que
 
 | Function                                      | Description|
 | ----------------------------------------------| :----------|
-| nodes(_path_)                                 | Returns a list containing all the nodes in _path_ <br> Returns null if _path_ evaluates to null         |
-| relationships(_path_)                         | Returns a list containing all the relationships in _path_ <br> Returns null if _path_ evaluates to null |
-| length(_path_)                                | Return the length (number of edges) of _path_ <br> Returns null if _path_ evaluates to null             |
+| nodes(_path_)                                 | Returns a list containing all the nodes in _path_ <br/> Returns null if _path_ evaluates to null         |
+| relationships(_path_)                         | Returns a list containing all the relationships in _path_ <br/> Returns null if _path_ evaluates to null |
+| length(_path_)                                | Return the length (number of edges) of _path_ <br/> Returns null if _path_ evaluates to null             |
 | [shortestPath(...)](#about-path-functions) *          | Return the shortest path that resolves the given pattern                                                |
 | [allShortestPaths(...)](#about-path-functions) *  | Returns all the shortest paths between a pair of entities
 
@@ -211,7 +211,7 @@ This section contains information on all supported functions from the Cypher que
 
 | Function                                  | Description|
 | ----------------------------------------- | :----------|
-| vecf32(_array_)                           | Creates a new float 32 vector <br> all elements of input array must be of type float |
+| vecf32(_array_)                           | Creates a new float 32 vector <br/> all elements of input array must be of type float |
 | vec.euclideanDistance(_vector_, _vector_) | Returns the Euclidean distance between the two input vectors |
 | vec.cosineDistance(_vector_, _vector_)    | Returns the Cosine distance between the two input vectors |
 

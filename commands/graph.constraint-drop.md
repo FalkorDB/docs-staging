@@ -22,30 +22,35 @@ For an introduction to constraints see [GRAPH.CONSTRAINT CREATE](/commands/graph
 
 ## Required arguments
 
-<details open><summary><code>key</code></summary>
+<details open>
+<summary><code>key</code></summary>
 
 is key name for the graph.
 </details>
 
-<details open><summary><code>constraintType</code></summary>
+<details open>
+<summary><code>constraintType</code></summary>
 
 is the constraint type: either `MANDATORY` or `UNIQUE`.
 
 </details>
 
-<details open><summary><code>NODE label | RELATIONSHIP reltype</code></summary>
+<details open>
+<summary><code>NODE label | RELATIONSHIP reltype</code></summary>
   
 is the graph entity type (`NODE` or `RELATIONSHIP`) and the name of the node label or relationship type on which the constraint is enforced.
 
 </details>
 
-<details open><summary><code>propCount</code></summary>
+<details open>
+<summary><code>propCount</code></summary>
 
 is the number of properties following. Valid values are between 1 and 255.
 
 </details>
 
-<details open><summary><code>prop...</code></summary>
+<details open>
+<summary><code>prop...</code></summary>
 
 is a list of `propCount` property names.
 

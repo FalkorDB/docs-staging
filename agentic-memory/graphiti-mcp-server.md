@@ -359,8 +359,11 @@ The Graphiti MCP server stores information in FalkorDB using the following schem
 
 ### Programmatic Access
 
-{: .warning }
-> **Important**: The Graphiti MCP server is designed to be used by MCP clients (like Claude Desktop or Cursor) via the HTTP transport protocol. It does **not** expose direct REST API endpoints outside of the MCP protocol.
+:::warning Important
+
+The Graphiti MCP server is designed to be used by MCP clients (like Claude Desktop or Cursor) via the HTTP transport protocol. It does **not** expose direct REST API endpoints outside of the MCP protocol.
+
+:::
 
 The server exposes:
 - `/mcp/` - HTTP MCP protocol endpoint

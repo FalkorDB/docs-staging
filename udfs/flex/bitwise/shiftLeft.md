@@ -37,7 +37,9 @@ result
 ------
 20
 ```
-(Binary: 0101 << 2 = 10100 = 20)
+```
+(Binary: 0101 `<<` 2 = 10100 = 20)
+```
 
 ### Example 2: Multiply by Power of Two
 ```cypher
