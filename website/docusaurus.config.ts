@@ -40,6 +40,7 @@ const config: Config = {
       'classic',
       {
         docs: {
+          path: '../',
           routeBasePath: '/', // Serve docs at the root
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/FalkorDB/docs-staging/edit/main/',
