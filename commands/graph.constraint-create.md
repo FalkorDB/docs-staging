@@ -53,7 +53,7 @@ E.g., a graph can contain the following `Person` nodes:
 
 But trying to create a third node with `first_name` Frank and `last_name` Costanza, will issue an error and the query will fail.
 
-<note><b>Notes:</b>
+:::note **Notes:**
 
 - A unique constraint requires the existence of an exact-match index prior to its creation. For example, trying to create a unique constraint governing attributes: `first_name` and `last_name` of nodes with label `Person` without having an exact-match index over `Person`'s `first_name` and `last_name` attributes will fail.
 
@@ -61,7 +61,7 @@ But trying to create a third node with `first_name` Frank and `last_name` Costan
 - Unique constraints are not enforced for array-valued properties.
 - Trying to delete an index that supports a constraint will fail.
 
-</note>
+:::
 
 ## Creating a constraint
 
@@ -73,36 +73,42 @@ GRAPH.CONSTRAINT CREATE key constraintType {NODE label | RELATIONSHIP reltype} P
 
 ## Required arguments
 
-<details open><summary><code>key</code></summary>
+<details open>
+<summary><code>key</code></summary>
 
 is key name for the graph.
+
 </details>
 
-<details open><summary><code>constraintType</code></summary>
+<details open>
+<summary><code>constraintType</code></summary>
 
 is the constraint type: either `MANDATORY` or `UNIQUE`.
 
 </details>
 
-<details open><summary><code>NODE label | RELATIONSHIP reltype</code></summary>
+<details open>
+<summary><code>NODE label | RELATIONSHIP reltype</code></summary>
   
 is the graph entity type (`NODE` or `RELATIONSHIP`) and the name of the node label or relationship type on which the constraint should be enforced.
 
 </details>
 
-<details open><summary><code>propCount</code></summary>
+<details open>
+<summary><code>propCount</code></summary>
 
 is the number of properties following. Valid values are between 1 and 255.
 
 </details>
 
-<details open><summary><code>prop...</code></summary>
+<details open>
+<summary><code>prop...</code></summary>
 
 is a list of `propCount` property names.
 
 </details>
 
-<note><b>Notes:</b>
+:::note **Notes:**
 
 - Constraints are created asynchronously. The constraint creation command will reply with `PENDING` and the newly created constraint is enforced gradually on all relevant nodes or relationships.
   During its creation phase, a constraint's status is `UNDER CONSTRUCTION`. When all governed nodes or relationships confirm to the constraint - its status is updated to `OPERATIONAL`, otherwise, if a conflict is detected, the constraint status is updated to `FAILED` and the constraint is not enforced. The caller may try to resolve the conflict and recreate the constraint. To retrieve the status of all constraints - use the `db.constraints()` procedure.
@@ -115,7 +121,7 @@ is a list of `propCount` property names.
 
   1. The graph contains data which violates the constraint
 
-</note>
+:::
 
 ## Return value
 

@@ -40,6 +40,16 @@ const config: Config = {
       'classic',
       {
         docs: {
+          path: '../', // Use root directory as docs source
+          exclude: [
+            '**/*.py',
+            '**/*.txt',
+            '**/node_modules/**',
+            '**/website/**',
+            '**/.git/**',
+            '**/.github/**',
+            '**/.vscode/**',
+          ],
           routeBasePath: '/', // Serve docs at the root
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/FalkorDB/docs-staging/edit/main/',

@@ -54,7 +54,7 @@ curl -X GET "http://your-falkordb-browser-url/api/status" \
 See what graphs are available in your FalkorDB instance:
 
 ```bash
-AUTH_HEADER="Authorization: Bearer ${JWT_TOKEN}"
+AUTH_HEADER="Authorization: Bearer $\{JWT_TOKEN\}"
 curl -X GET "http://your-falkordb-browser-url/api/graph" \
   -H "$AUTH_HEADER"
 ```
@@ -63,7 +63,7 @@ curl -X GET "http://your-falkordb-browser-url/api/graph" \
 Run a simple Cypher query on a graph:
 
 ```bash
-AUTH_HEADER="Authorization: Bearer ${JWT_TOKEN}"
+AUTH_HEADER="Authorization: Bearer $\{JWT_TOKEN\}"
 curl -N -X GET "http://your-falkordb-browser-url/api/graph/my_graph?query=MATCH%20(n)%20RETURN%20n%20LIMIT%205&timeout=30000" \
   -H "$AUTH_HEADER" \
   -H "Accept: text/event-stream"
@@ -74,61 +74,61 @@ curl -N -X GET "http://your-falkordb-browser-url/api/graph/my_graph?query=MATCH%
 ### Authentication
 - [Generate JWT Token with Credentials - POST /api/auth/tokens/credentials](#generate-jwt-token-with-credentials---post-apiauthtokenscredentials)
 - [List JWT tokens - GET /api/auth/tokens](#list-jwt-tokens---get-apiauthtokens)
-- [Get token metadata - GET /api/auth/tokens/{tokenId}](#get-token-metadata---get-apiauthtokenstokenid)
-- [Revoke token by ID - DELETE /api/auth/tokens/{tokenId}](#revoke-token-by-id---delete-apiauthtokenstokenid)
+- [Get token metadata - GET /api/auth/tokens/\{tokenId\}](#get-token-metadata---get-apiauthtokenstokenid)
+- [Revoke token by ID - DELETE /api/auth/tokens/\{tokenId\}](#revoke-token-by-id---delete-apiauthtokenstokenid)
 
 ### Status
 - [Check FalkorDB connection status - GET /api/status](#check-falkordb-connection-status---get-apistatus)
 
 ### Graph Management
 - [List all graphs - GET /api/graph](#list-all-graphs---get-apigraph)
-- [Execute graph query - GET /api/graph/{graph}](#execute-graph-query---get-apigraphgraph)
-- [Create or verify a graph - POST /api/graph/{graph}](#create-or-verify-a-graph---post-apigraphgraph)
-- [Rename graph - PATCH /api/graph/{graph}](#rename-graph---patch-apigraphgraph)
-- [Delete a graph - DELETE /api/graph/{graph}](#delete-a-graph---delete-apigraphgraph)
-- [Get query execution plan - GET /api/graph/{graph}/explain](#get-query-execution-plan---get-apigraphgraphexplain)
-- [Profile query execution - GET /api/graph/{graph}/profile](#profile-query-execution---get-apigraphgraphprofile)
-- [Get graph information - GET /api/graph/{graph}/info](#get-graph-information---get-apigraphgraphinfo)
-- [Get graph element counts - GET /api/graph/{graph}/count](#get-graph-element-counts---get-apigraphgraphcount)
-- [Export graph data - GET /api/graph/{graph}/export](#export-graph-data---get-apigraphgraphexport)
-- [Duplicate a graph - PATCH /api/graph/{graph}/duplicate](#duplicate-a-graph---patch-apigraphgraphduplicate)
-- [Get node information - GET /api/graph/{graph}/{node}](#get-node-information---get-apigraphgraphnode)
-- [Delete node or relationship - DELETE /api/graph/{graph}/{node}](#delete-node-or-relationship---delete-apigraphgraphnode)
-- [Add node label - POST /api/graph/{graph}/{node}/label](#add-node-label---post-apigraphgraphnodelabel)
-- [Remove node label - DELETE /api/graph/{graph}/{node}/label](#remove-node-label---delete-apigraphgraphnodelabel)
-- [Set node/relationship property - POST /api/graph/{graph}/{node}/{key}](#set-noderelationship-property---post-apigraphgraphnodekey)
-- [Remove node/relationship property - DELETE /api/graph/{graph}/{node}/{key}](#remove-noderelationship-property---delete-apigraphgraphnodekey)
+- [Execute graph query - GET /api/graph/\{graph\}](#execute-graph-query---get-apigraphgraph)
+- [Create or verify a graph - POST /api/graph/\{graph\}](#create-or-verify-a-graph---post-apigraphgraph)
+- [Rename graph - PATCH /api/graph/\{graph\}](#rename-graph---patch-apigraphgraph)
+- [Delete a graph - DELETE /api/graph/\{graph\}](#delete-a-graph---delete-apigraphgraph)
+- [Get query execution plan - GET /api/graph/\{graph\}/explain](#get-query-execution-plan---get-apigraphgraphexplain)
+- [Profile query execution - GET /api/graph/\{graph\}/profile](#profile-query-execution---get-apigraphgraphprofile)
+- [Get graph information - GET /api/graph/\{graph\}/info](#get-graph-information---get-apigraphgraphinfo)
+- [Get graph element counts - GET /api/graph/\{graph\}/count](#get-graph-element-counts---get-apigraphgraphcount)
+- [Export graph data - GET /api/graph/\{graph\}/export](#export-graph-data---get-apigraphgraphexport)
+- [Duplicate a graph - PATCH /api/graph/\{graph\}/duplicate](#duplicate-a-graph---patch-apigraphgraphduplicate)
+- [Get node information - GET /api/graph/\{graph\}/\{node\}](#get-node-information---get-apigraphgraphnode)
+- [Delete node or relationship - DELETE /api/graph/\{graph\}/\{node\}](#delete-node-or-relationship---delete-apigraphgraphnode)
+- [Add node label - POST /api/graph/\{graph\}/\{node\}/label](#add-node-label---post-apigraphgraphnodelabel)
+- [Remove node label - DELETE /api/graph/\{graph\}/\{node\}/label](#remove-node-label---delete-apigraphgraphnodelabel)
+- [Set node/relationship property - POST /api/graph/\{graph\}/\{node\}/\{key\}](#set-noderelationship-property---post-apigraphgraphnodekey)
+- [Remove node/relationship property - DELETE /api/graph/\{graph\}/\{node\}/\{key\}](#remove-noderelationship-property---delete-apigraphgraphnodekey)
 
 ### Configuration Management
 - [Get all configuration values - GET /api/graph/config](#get-all-configuration-values---get-apigraphconfig)
-- [Get specific configuration value - GET /api/graph/config/{config}](#get-specific-configuration-value---get-apigraphconfigconfig)
-- [Set configuration value - POST /api/graph/config/{config}](#set-configuration-value---post-apigraphconfigconfig)
+- [Get specific configuration value - GET /api/graph/config/\{config\}](#get-specific-configuration-value---get-apigraphconfigconfig)
+- [Set configuration value - POST /api/graph/config/\{config\}](#set-configuration-value---post-apigraphconfigconfig)
 
 <!-- ### Schema Management
 - [List all schemas - GET /api/schema](#list-all-schemas---get-apischema)
-- [Get schema information - GET /api/schema/{schema}](#get-schema-information---get-apischemaschema)
-- [Create new schema - POST /api/schema/{schema}](#create-new-schema---post-apischemaschema)
-- [Rename schema - PATCH /api/schema/{schema}](#rename-schema---patch-apischemaschema)
-- [Delete schema - DELETE /api/schema/{schema}](#delete-schema---delete-apischemaschema)
-- [Get schema element counts - GET /api/schema/{schema}/count](#get-schema-element-counts---get-apischemaschemacount)
-- [Duplicate schema - PATCH /api/schema/{schema}/duplicate](#duplicate-schema---patch-apischemaschemaduplicate)
-- [Create node or relationship in schema - POST /api/schema/{schema}/new](#create-node-or-relationship-in-schema---post-apischemaschemanew)
-- [Create node in schema - POST /api/schema/{schema}/nodes](#create-node-in-schema---post-apischemaschemanodes)
-- [Create relationship in schema - POST /api/schema/{schema}/relationships](#create-relationship-in-schema---post-apischemaschemarelationships)
-- [Delete node from schema - DELETE /api/schema/{schema}/{nodeId}](#delete-node-from-schema---delete-apischemaschemanodeid)
-- [Delete relationship from schema - DELETE /api/schema/{schema}/{relationshipId}](#delete-relationship-from-schema---delete-apischemaschemarelationshipid)
-- [Add label to node - POST /api/schema/{schema}/{node}/label](#add-label-to-node---post-apischemaschemanodelabel)
-- [Remove label from node - DELETE /api/schema/{schema}/{node}/label](#remove-label-from-node---delete-apischemaschemanodelabel)
-- [Add/Update attribute to node - PATCH /api/schema/{schema}/{nodeId}/{key}](#addupdate-attribute-to-node---patch-apischemaschemanodeidkey)
-- [Remove attribute from node - DELETE /api/schema/{schema}/{nodeId}/{key}](#remove-attribute-from-node---delete-apischemaschemanodeidkey)
-- [Add/Update attribute to relationship - PATCH /api/schema/{schema}/{relationshipId}/{key}](#addupdate-attribute-to-relationship---patch-apischemaschemarelationshipidkey)
-- [Remove attribute from relationship - DELETE /api/schema/{schema}/{relationshipId}/{key}](#remove-attribute-from-relationship---delete-apischemaschemarelationshipidkey) -->
+- [Get schema information - GET /api/schema/\{schema\}](#get-schema-information---get-apischemaschema)
+- [Create new schema - POST /api/schema/\{schema\}](#create-new-schema---post-apischemaschema)
+- [Rename schema - PATCH /api/schema/\{schema\}](#rename-schema---patch-apischemaschema)
+- [Delete schema - DELETE /api/schema/\{schema\}](#delete-schema---delete-apischemaschema)
+- [Get schema element counts - GET /api/schema/\{schema\}/count](#get-schema-element-counts---get-apischemaschemacount)
+- [Duplicate schema - PATCH /api/schema/\{schema\}/duplicate](#duplicate-schema---patch-apischemaschemaduplicate)
+- [Create node or relationship in schema - POST /api/schema/\{schema\}/new](#create-node-or-relationship-in-schema---post-apischemaschemanew)
+- [Create node in schema - POST /api/schema/\{schema\}/nodes](#create-node-in-schema---post-apischemaschemanodes)
+- [Create relationship in schema - POST /api/schema/\{schema\}/relationships](#create-relationship-in-schema---post-apischemaschemarelationships)
+- [Delete node from schema - DELETE /api/schema/\{schema\}/\{nodeId\}](#delete-node-from-schema---delete-apischemaschemanodeid)
+- [Delete relationship from schema - DELETE /api/schema/\{schema\}/\{relationshipId\}](#delete-relationship-from-schema---delete-apischemaschemarelationshipid)
+- [Add label to node - POST /api/schema/\{schema\}/\{node\}/label](#add-label-to-node---post-apischemaschemanodelabel)
+- [Remove label from node - DELETE /api/schema/\{schema\}/\{node\}/label](#remove-label-from-node---delete-apischemaschemanodelabel)
+- [Add/Update attribute to node - PATCH /api/schema/\{schema\}/\{nodeId\}/\{key\}](#addupdate-attribute-to-node---patch-apischemaschemanodeidkey)
+- [Remove attribute from node - DELETE /api/schema/\{schema\}/\{nodeId\}/\{key\}](#remove-attribute-from-node---delete-apischemaschemanodeidkey)
+- [Add/Update attribute to relationship - PATCH /api/schema/\{schema\}/\{relationshipId\}/\{key\}](#addupdate-attribute-to-relationship---patch-apischemaschemarelationshipidkey)
+- [Remove attribute from relationship - DELETE /api/schema/\{schema\}/\{relationshipId\}/\{key\}](#remove-attribute-from-relationship---delete-apischemaschemarelationshipidkey) -->
 
 ### User Management
 - [List all users - GET /api/user](#list-all-users---get-apiuser)
 - [Create new user - POST /api/user](#create-new-user---post-apiuser)
 - [Delete multiple users - DELETE /api/user](#delete-multiple-users---delete-apiuser)
-- [Update user role - PATCH /api/user/{user}](#update-user-role---patch-apiuseruser)
+- [Update user role - PATCH /api/user/\{user\}](#update-user-role---patch-apiuseruser)
 
 ---
 
@@ -250,7 +250,7 @@ Get a list of active JWT tokens. Admins see all tokens, regular users see only t
 - **401**: Authentication failed - invalid or missing token
 - **500**: Internal server error
 
-### **Get token metadata** - `GET /api/auth/tokens/{tokenId}`
+### **Get token metadata** - `GET /api/auth/tokens/\{tokenId\}`
 
 Get detailed metadata for a specific JWT token by its token ID. Admins can view any token, regular users can only view their own tokens.
 
@@ -305,7 +305,7 @@ Get detailed metadata for a specific JWT token by its token ID. Admins can view 
 
 - **500**: Internal server error
 
-### **Revoke token by ID** - `DELETE /api/auth/tokens/{tokenId}`
+### **Revoke token by ID** - `DELETE /api/auth/tokens/\{tokenId\}`
 
 Revoke a specific JWT token by its token ID. Once revoked, the token cannot be used for authentication. Admins can revoke any token, regular users can only revoke their own tokens.
 
@@ -419,7 +419,7 @@ Get a list of all graphs in the FalkorDB instance.
 - **400**: Bad request
 - **500**: Internal server error
 
-### **Execute graph query** - `GET /api/graph/{graph}`
+### **Execute graph query** - `GET /api/graph/\{graph\}`
 
 Execute a Cypher query on the specified graph (Server-Sent Events).
 
@@ -438,7 +438,7 @@ Execute a Cypher query on the specified graph (Server-Sent Events).
 
 - **200**: Query executed successfully (Server-Sent Events stream)
 
-### **Create or verify a graph** - `POST /api/graph/{graph}`
+### **Create or verify a graph** - `POST /api/graph/\{graph\}`
 
 Create a new graph or verify that a graph exists.
 
@@ -463,7 +463,7 @@ Create a new graph or verify that a graph exists.
 - **400**: Bad request
 - **500**: Internal server error
 
-### **Rename graph** - `PATCH /api/graph/{graph}`
+### **Rename graph** - `PATCH /api/graph/\{graph\}`
 
 Rename an existing graph to a new name.
 
@@ -491,7 +491,7 @@ Rename an existing graph to a new name.
 - **400**: Bad request - graph already exists or missing sourceName
 - **500**: Internal server error
 
-### **Delete a graph** - `DELETE /api/graph/{graph}`
+### **Delete a graph** - `DELETE /api/graph/\{graph\}`
 
 Delete a graph from the FalkorDB instance.
 
@@ -516,7 +516,7 @@ Delete a graph from the FalkorDB instance.
 - **400**: Bad request
 - **500**: Internal server error
 
-### **Get query execution plan** - `GET /api/graph/{graph}/explain`
+### **Get query execution plan** - `GET /api/graph/\{graph\}/explain`
 
 Get the execution plan for a Cypher query without executing it.
 
@@ -531,7 +531,7 @@ Get the execution plan for a Cypher query without executing it.
 
 - **200**: Query execution plan returned successfully
 
-### **Profile query execution** - `GET /api/graph/{graph}/profile`
+### **Profile query execution** - `GET /api/graph/\{graph\}/profile`
 
 Get detailed profiling information for a Cypher query.
 
@@ -546,7 +546,7 @@ Get detailed profiling information for a Cypher query.
 
 - **200**: Query profiling information returned successfully
 
-### **Get graph information** - `GET /api/graph/{graph}/info`
+### **Get graph information** - `GET /api/graph/\{graph\}/info`
 
 Get specific information about a graph (functions, property keys, labels, or relationship types).
 
@@ -578,7 +578,7 @@ Get specific information about a graph (functions, property keys, labels, or rel
 
 - **400**: Bad request - missing or invalid type parameter
 
-### **Get graph element counts** - `GET /api/graph/{graph}/count`
+### **Get graph element counts** - `GET /api/graph/\{graph\}/count`
 
 Get the count of nodes and relationships in a graph.
 
@@ -592,7 +592,7 @@ Get the count of nodes and relationships in a graph.
 
 - **200**: Element counts retrieved successfully
 
-### **Export graph data** - `GET /api/graph/{graph}/export`
+### **Export graph data** - `GET /api/graph/\{graph\}/export`
 
 Export graph data in various formats.
 
@@ -606,7 +606,7 @@ Export graph data in various formats.
 
 - **200**: Graph data exported successfully
 
-### **Duplicate a graph** - `PATCH /api/graph/{graph}/duplicate`
+### **Duplicate a graph** - `PATCH /api/graph/\{graph\}/duplicate`
 
 Create a copy of an existing graph with a new name.
 
@@ -634,7 +634,7 @@ Create a copy of an existing graph with a new name.
 - **400**: Bad request - missing sourceName parameter
 - **500**: Internal server error
 
-### **Get node information** - `GET /api/graph/{graph}/{node}`
+### **Get node information** - `GET /api/graph/\{graph\}/\{node\}`
 
 Get detailed information about a specific node.
 
@@ -674,7 +674,7 @@ Get detailed information about a specific node.
 - **400**: Bad request
 - **500**: Internal server error
 
-### **Delete node or relationship** - `DELETE /api/graph/{graph}/{node}`
+### **Delete node or relationship** - `DELETE /api/graph/\{graph\}/\{node\}`
 
 Delete a node or relationship from the graph.
 
@@ -714,7 +714,7 @@ Example request:
 - **400**: Bad request - missing type parameter
 - **500**: Internal server error
 
-### **Add node label** - `POST /api/graph/{graph}/{node}/label`
+### **Add node label** - `POST /api/graph/\{graph\}/\{node\}/label`
 
 Add a label to a specific node.
 
@@ -740,7 +740,7 @@ Example request:
 
 - **200**: Label added successfully
 
-### **Remove node label** - `DELETE /api/graph/{graph}/{node}/label`
+### **Remove node label** - `DELETE /api/graph/\{graph\}/\{node\}/label`
 
 Remove a label from a specific node.
 
@@ -766,7 +766,7 @@ Example request:
 
 - **200**: Label removed successfully
 
-### **Set node/relationship property** - `POST /api/graph/{graph}/{node}/{key}`
+### **Set node/relationship property** - `POST /api/graph/\{graph\}/\{node\}/\{key\}`
 
 Set a property value on a node or relationship.
 
@@ -800,7 +800,7 @@ Example request:
 
 - **200**: Property set successfully
 
-### **Remove node/relationship property** - `DELETE /api/graph/{graph}/{node}/{key}`
+### **Remove node/relationship property** - `DELETE /api/graph/\{graph\}/\{node\}/\{key\}`
 
 Remove a property from a node or relationship.
 
@@ -862,7 +862,7 @@ Get all FalkorDB configuration parameters and their values.
 - **400**: Bad request
 - **500**: Internal server error
 
-### **Get specific configuration value** - `GET /api/graph/config/{config}`
+### **Get specific configuration value** - `GET /api/graph/config/\{config\}`
 
 Get the value of a specific configuration parameter.
 
@@ -888,7 +888,7 @@ Get the value of a specific configuration parameter.
 - **400**: Bad request
 - **500**: Internal server error
 
-### **Set configuration value** - `POST /api/graph/config/{config}`
+### **Set configuration value** - `POST /api/graph/config/\{config\}`
 
 Set the value of a specific configuration parameter.
 
@@ -931,7 +931,7 @@ Get a list of all schemas in the FalkorDB instance.
 
 - **200**: List of schemas retrieved successfully
 
-### **Get schema information** - `GET /api/schema/{schema}`
+### **Get schema information** - `GET /api/schema/\{schema\}`
 
 Get detailed information about a specific schema.
 
@@ -945,7 +945,7 @@ Get detailed information about a specific schema.
 
 - **200**: Schema information retrieved successfully
 
-### **Create new schema** - `POST /api/schema/{schema}`
+### **Create new schema** - `POST /api/schema/\{schema\}`
 
 Create a new schema with the specified name.
 
@@ -959,7 +959,7 @@ Create a new schema with the specified name.
 
 - **201**: Schema created successfully
 
-### **Rename schema** - `PATCH /api/schema/{schema}`
+### **Rename schema** - `PATCH /api/schema/\{schema\}`
 
 Rename an existing schema to a new name.
 
@@ -987,7 +987,7 @@ Rename an existing schema to a new name.
 - **400**: Bad request - schema already exists or missing sourceName
 - **500**: Internal server error
 
-### **Delete schema** - `DELETE /api/schema/{schema}`
+### **Delete schema** - `DELETE /api/schema/\{schema\}`
 
 Delete a schema and all its data permanently.
 
@@ -1001,7 +1001,7 @@ Delete a schema and all its data permanently.
 
 - **200**: Schema deleted successfully
 
-### **Get schema element counts** - `GET /api/schema/{schema}/count`
+### **Get schema element counts** - `GET /api/schema/\{schema\}/count`
 
 Get the count of nodes and relationships in a schema.
 
@@ -1015,7 +1015,7 @@ Get the count of nodes and relationships in a schema.
 
 - **200**: Schema element counts retrieved successfully
 
-### **Duplicate schema** - `PATCH /api/schema/{schema}/duplicate`
+### **Duplicate schema** - `PATCH /api/schema/\{schema\}/duplicate`
 
 Create a copy of an existing schema with a new name, preserving all data and structure.
 
@@ -1043,7 +1043,7 @@ Create a copy of an existing schema with a new name, preserving all data and str
 - **400**: Bad request - missing sourceName parameter
 - **500**: Internal server error
 
-### **Create node or relationship in schema** - `POST /api/schema/{schema}/new`
+### **Create node or relationship in schema** - `POST /api/schema/\{schema\}/new`
 
 The actual backend endpoint for creating nodes and relationships. Use `type=true` for nodes, `type=false` for relationships.
 
@@ -1091,9 +1091,9 @@ Example request for relationship creation:
 
 - **200**: Node or relationship created successfully
 
-### **Create node in schema** - `POST /api/schema/{schema}/nodes`
+### **Create node in schema** - `POST /api/schema/\{schema\}/nodes`
 
-Create a new node in the specified schema. Multiple labels are supported and will be joined with colons (e.g., `:Person:User`). This endpoint maps to `/api/schema/{schema}/new` with `type=true`.
+Create a new node in the specified schema. Multiple labels are supported and will be joined with colons (e.g., `:Person:User`). This endpoint maps to `/api/schema/\{schema\}/new` with `type=true`.
 
 #### Headers
 - `Authorization: Bearer <token>` (required)
@@ -1126,9 +1126,9 @@ Example request:
 
 - **200**: Node created successfully
 
-### **Create relationship in schema** - `POST /api/schema/{schema}/relationships`
+### **Create relationship in schema** - `POST /api/schema/\{schema\}/relationships`
 
-Create a new relationship between two nodes in the specified schema. Only the first label in the array is used as the relationship type. This endpoint maps to `/api/schema/{schema}/new` with `type=false`.
+Create a new relationship between two nodes in the specified schema. Only the first label in the array is used as the relationship type. This endpoint maps to `/api/schema/\{schema\}/new` with `type=false`.
 
 #### Headers
 - `Authorization: Bearer <token>` (required)
@@ -1162,7 +1162,7 @@ Example request:
 
 - **200**: Relationship created successfully
 
-### **Delete node from schema** - `DELETE /api/schema/{schema}/{nodeId}`
+### **Delete node from schema** - `DELETE /api/schema/\{schema\}/\{nodeId\}`
 
 Delete a specific node from the schema by ID. Set `type=true` for node deletion.
 
@@ -1191,7 +1191,7 @@ Example request:
 
 - **200**: Node deleted successfully
 
-### **Delete relationship from schema** - `DELETE /api/schema/{schema}/{relationshipId}`
+### **Delete relationship from schema** - `DELETE /api/schema/\{schema\}/\{relationshipId\}`
 
 Delete a specific relationship from the schema by ID. Set `type=false` for relationship deletion.
 
@@ -1220,7 +1220,7 @@ Example request:
 
 - **200**: Relationship deleted successfully
 
-### **Add label to node** - `POST /api/schema/{schema}/{node}/label`
+### **Add label to node** - `POST /api/schema/\{schema\}/\{node\}/label`
 
 Add a new label to an existing node in the schema.
 
@@ -1247,7 +1247,7 @@ Example request:
 
 - **200**: Label added successfully
 
-### **Remove label from node** - `DELETE /api/schema/{schema}/{node}/label`
+### **Remove label from node** - `DELETE /api/schema/\{schema\}/\{node\}/label`
 
 Remove a specific label from an existing node in the schema.
 
@@ -1274,7 +1274,7 @@ Example request:
 
 - **200**: Label removed successfully
 
-### **Add/Update attribute to node** - `PATCH /api/schema/{schema}/{nodeId}/{key}`
+### **Add/Update attribute to node** - `PATCH /api/schema/\{schema\}/\{nodeId\}/\{key\}`
 
 Add a new attribute or update an existing attribute on a node in the schema.
 
@@ -1306,7 +1306,7 @@ Example request:
 
 - **200**: Attribute added/updated successfully
 
-### **Remove attribute from node** - `DELETE /api/schema/{schema}/{nodeId}/{key}`
+### **Remove attribute from node** - `DELETE /api/schema/\{schema\}/\{nodeId\}/\{key\}`
 
 Remove a specific attribute from a node in the schema.
 
@@ -1336,7 +1336,7 @@ Example request:
 
 - **200**: Attribute removed successfully
 
-### **Add/Update attribute to relationship** - `PATCH /api/schema/{schema}/{relationshipId}/{key}`
+### **Add/Update attribute to relationship** - `PATCH /api/schema/\{schema\}/\{relationshipId\}/\{key\}`
 
 Add a new attribute or update an existing attribute on a relationship in the schema.
 
@@ -1368,7 +1368,7 @@ Example request:
 
 - **200**: Attribute added/updated successfully
 
-### **Remove attribute from relationship** - `DELETE /api/schema/{schema}/{relationshipId}/{key}`
+### **Remove attribute from relationship** - `DELETE /api/schema/\{schema\}/\{relationshipId\}/\{key\}`
 
 Remove a specific attribute from a relationship in the schema.
 
@@ -1518,7 +1518,7 @@ Example request:
 - **400**: Bad request
 - **500**: Internal server error
 
-### **Update user role** - `PATCH /api/user/{user}`
+### **Update user role** - `PATCH /api/user/\{user\}`
 
 Update the role of a FalkorDB user.
 

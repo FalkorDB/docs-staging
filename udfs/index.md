@@ -53,9 +53,9 @@ print(f"s: {s}") # prints 'AbCdEf'
 ```
 ## Commands Specification
 
-The FalkorDB-PY Python client provides convenient access to UDF functionality, but FalkorDB also exposes this functionality via a set of GRAPH.UDF <sub_cmd> commands.
+The FalkorDB-PY Python client provides convenient access to UDF functionality, but FalkorDB also exposes this functionality via a set of GRAPH.UDF commands.
 
-### GRAPH.UDF LOAD [REPLACE] <Lib> <script>
+### GRAPH.UDF LOAD [REPLACE] `<Lib>` `<script>`
 
 To add a UDF, call `GRAPH.UDF LOAD` followed by an optional `REPLACE` keyword. When specified, the REPLACE keyword replaces an already registered UDF library. The command then takes two arguments: the library name and the library script (written in JavaScript).
 
@@ -137,7 +137,7 @@ Calling the command: `GRAPH.UDF LIST WITHCODE` will generate the following outpu
    6) "function ShapeType(shape) {return shape.type;} function Triangle() {return {type: 'triangle', a:2, b:3, c:5};}...
 ```
 
-### GRAPH.UDF DELETE <library>
+### GRAPH.UDF DELETE `<library>`
 
 To remove a UDF library use either the `udf_delete` FalkorDB-PY function, or send a `GRAPH.UDF DELETE <library>` command via a direct connection to the database.
 

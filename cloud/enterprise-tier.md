@@ -43,7 +43,7 @@ The Enterprise Tier is fully optimized for mission-critical applications, provid
 ## Getting Started
 
 <a href="https://www.youtube.com/watch?v=fu_8CLFKYSs" target="_blank">
-  <img src="https://github.com/user-attachments/assets/d5519002-84ad-4076-9f64-150575d2eb7b" alt="FalkorDB Graph DBaaS Enterprise Tier Tutorial Video" width="640" height="360">
+  <img src="https://github.com/user-attachments/assets/d5519002-84ad-4076-9f64-150575d2eb7b" alt="FalkorDB Graph DBaaS Enterprise Tier Tutorial Video" width="640" height="360" />
 </a>
 
 ⚙️ To begin your Enterprise journey, schedule a consultation: 
