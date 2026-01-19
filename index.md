@@ -2,30 +2,34 @@
 title: Home
 description: "The fastest way to your knowledge"
 ---
+<!-- markdownlint-disable MD033 -->
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 [![Trendshift](https://trendshift.io/api/badge/repositories/14787)](https://trendshift.io/repositories/14787)
 
 [![Docker Hub](https://img.shields.io/docker/pulls/falkordb/falkordb?label=Docker&style=flat-square)](https://hub.docker.com/r/falkordb/falkordb/)
-[![Discord](https://img.shields.io/discord/1146782921294884966?style=flat-square)](https://discord.gg/ErBEqN9E) 
+[![Discord](https://img.shields.io/discord/1146782921294884966?style=flat-square)](https://discord.gg/ErBEqN9E)
 [![Try Free](https://img.shields.io/badge/Try%20Free-FalkorDB%20Cloud-FF8101?labelColor=FDE900&style=flat-square)](https://app.falkordb.cloud)
 
 ![FalkorDB Docs Readme Banner](https://github.com/user-attachments/assets/201b07e1-ac6d-4593-98cf-e58946d7766c)
 
-# FalkorDB
+## FalkorDB
+
 ### The Graph platform developers use to achieve accurate GraphRAG for enterprise GenAI
 
 ### About FalkorDB
-FalkorDB delivers an **accurate, multi-tenant RAG solution powered by a low-latency, scalable graph database technology.** 
+
+FalkorDB delivers an **accurate, multi-tenant RAG solution powered by a low-latency, scalable graph database technology.**
 
 * Our solution is purpose-built for development teams working with complex, interconnected data—whether structured or unstructured—in real-time or interactive user environments.
 
 * The system supports the OpenCypher query language with proprietary enhancements that streamline interactions with graph data. Its efficient graph traversal and query capabilities make it well-suited for production environments.
 
 ### Choose Your Path
-*   **Graph Database Path:** If you're interested in using FalkorDB as a property graph database with OpenCypher support, continue with the sections below.
-*   **GraphRAG Path:** If you're aiming to implement advanced graph reasoning and generative AI tasks, explore our [GenAI Tools](/genai-tools) section, starting with the [GraphRAG SDK](/genai-tools/graphrag-sdk).
+
+* **Graph Database Path:** If you're interested in using FalkorDB as a property graph database with OpenCypher support, continue with the sections below.
+* **GraphRAG Path:** If you're aiming to implement advanced graph reasoning and generative AI tasks, explore our [GenAI Tools](/genai-tools) section, starting with the [GraphRAG SDK](/genai-tools/graphrag-sdk).
 
 ## Primary Features
 
