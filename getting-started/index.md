@@ -3,10 +3,11 @@ title: "Getting Started"
 description: >
     Getting Started with FalkorDB Graph Database.
 ---
+<!-- markdownlint-disable MD033 -->
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Getting Started with FalkorDB
+## Getting Started with FalkorDB
 
 This guide will walk you through setting up FalkorDB, modeling a social network as a graph, and accessing it using one of the [FalkorDB client libraries](/getting-started/clients) with the [Cypher](/cypher) query language.
 
@@ -14,11 +15,11 @@ This guide will walk you through setting up FalkorDB, modeling a social network 
 
 ## Prerequisites
 
-1. **FalkorDB Instance**: Set up FalkorDB (on-prem or cloud). 
+1. **FalkorDB Instance**: Set up FalkorDB (on-prem or cloud).
    - [Run FalkorDB Docker](https://hub.docker.com/r/falkordb/falkordb/)
    - [Create a FalkorDB Cloud Instance](https://app.falkordb.cloud/signup)
 2. **Install FalkorDB Client**:
-   
+
 
 <Tabs groupId="programming-language">
   <TabItem value="python" label="Python">
@@ -62,6 +63,7 @@ cargo add falkordb
 ## Step 1: Model a Social Network as a Graph
 
 Let's create a simple graph for a social network where:  
+
 - **Nodes** represent `User` and `Post`.
 - **Relationships** connect `User`s with a `FRIENDS_WITH` relationship, and `User`s are connected via a `CREATED` relationship to `Post`s
 
@@ -69,17 +71,17 @@ Let's create a simple graph for a social network where:
 
 **Node Types:**
 
-| Node Type | Properties               | Description                           |
-|-----------|--------------------------|---------------------------------------|
-| User      | `id`, `name`, `email`    | Represents a user in the social network |
-| Post      | `id`, `content`, `date`  | Represents a post created by a user    |
+| Node Type | Properties | Description |
+| --- | --- | --- |
+| User | `id`, `name`, `email` | Represents a user in the social network |
+| Post | `id`, `content`, `date` | Represents a post created by a user |
 
 **Relationship Types:**
 
-| Relationship Type | Start Node | End Node | Properties   | Description                              |
-|-------------------|------------|----------|--------------|------------------------------------------|
-| FRIENDS_WITH      | User       | User     | `since`      | Indicates friendship between two users   |
-| CREATED           | User       | Post     | `time`       | Connects a user to their created posts   |
+| Relationship Type | Start Node | End Node | Properties | Description |
+| --- | --- | --- | --- | --- |
+| FRIENDS_WITH | User | User | `since` | Indicates friendship between two users |
+| CREATED | User | Post | `time` | Connects a user to their created posts |
 
 ![FalkorDB-Model a Social Network as a Graph](https://github.com/user-attachments/assets/57d9b837-661e-4500-a9f2-88e754382d29)
 
@@ -416,9 +418,11 @@ for record in result.data.by_ref() {
 Congratulations! 🎉 You have successfully modeled, loaded, and queried a social network graph with FalkorDB.
 
 Next, dive deeper into FalkorDB's powerful features:
+
 - [Advanced Cypher](/cypher)
 - [Database Operations](/operations)
 - [GenAI Tools](/genai-tools)
 - [Agentic Memory](/agentic-memory)
+
 
 For questions or support, visit our [community forums](https://www.falkordb.com/contact-us/)
