@@ -40,6 +40,7 @@ const config: Config = {
       'classic',
       {
         docs: {
+          path: '../',
           routeBasePath: '/', // Serve docs at the root
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/FalkorDB/docs-staging/edit/main/',
@@ -188,7 +189,7 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       defaultMode: 'dark',
-      respectPrefersColorScheme: false,
+      respectPrefersColorScheme: true,
     },
     navbar: {
       logo: {
@@ -229,6 +230,34 @@ const config: Config = {
     },
     footer: {
       style: 'light',
+      links: [
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/ErBEqN9E',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/FalkorDB/docs-staging',
+            },
+          ],
+        },
+        {
+          title: 'Contribute',
+          items: [
+            {
+              label: 'Report an issue',
+              href: 'https://github.com/FalkorDB/docs-staging/issues/new/choose',
+            },
+            {
+              label: 'Edit the docs',
+              href: 'https://github.com/FalkorDB/docs-staging/edit/main/',
+            },
+          ],
+        },
+      ],
       copyright: `© ${new Date().getFullYear()} FalkorDB`,
     },
     prism: {
